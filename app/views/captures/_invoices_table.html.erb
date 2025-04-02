@@ -1,0 +1,18 @@
+<table class="table table-bordered table-responsive">
+  <thead>
+    <tr>
+      <th>Invoice Number</th>
+      <th>Company Name</th>
+      <th>Check Number</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% invoices.each do |invoice| %>
+      <tr>
+        <td><%= invoice.invoice_number %></td>
+        <td><%= invoice.company_name %></td>
+        <td><%= invoice.check_number %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

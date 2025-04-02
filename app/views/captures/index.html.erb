@@ -1,0 +1,42 @@
+<!-- Tab navigation -->
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item" role="presentation">
+    <a class="nav-link active" id="capture-tab" data-bs-toggle="tab" href="#capture" role="tab" aria-controls="capture" aria-selected="true">Capture</a>
+  </li>
+  <li class="nav-item" role="presentation">
+    <a class="nav-link" id="checks-tab" data-bs-toggle="tab" href="#checks" role="tab" aria-controls="checks" aria-selected="false">Checks</a>
+  </li>
+  <li class="nav-item" role="presentation">
+    <a class="nav-link" id="invoices-tab" data-bs-toggle="tab" href="#invoices" role="tab" aria-controls="invoices" aria-selected="false">Invoices</a>
+  </li>
+  <li class="nav-item" role="presentation">
+    <a class="nav-link" id="companies-tab" data-bs-toggle="tab" href="#companies" role="tab" aria-controls="companies" aria-selected="false">Companies</a>
+  </li>
+</ul>
+<%if flash[:success]%>
+  <%= render 'success_flash' %>
+<% else %>
+  <% if flash[:error]%>
+    <div class="alert alert-danger"><%= flash[:error] %></div>
+  <%end%>
+
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="capture" role="tabpanel" aria-labelledby="capture-tab">
+      <ul>
+        <%= render 'capture_form' %>
+      </ul>
+    </div>
+
+    <div class="tab-pane fade" id="checks" role="tabpanel" aria-labelledby="checks-tab">
+      <%= render 'checks_table', checks: @checks %>
+    </div>
+
+    <div class="tab-pane fade" id="invoices" role="tabpanel" aria-labelledby="invoices-tab">
+      <%= render 'invoices_table', invoices: @invoices %>
+    </div>
+
+    <div class="tab-pane fade" id="companies" role="tabpanel" aria-labelledby="companies-tab">
+      <%= render 'companies_table', companies: @companies %>
+    </div>
+  </div>
+<%end%>
