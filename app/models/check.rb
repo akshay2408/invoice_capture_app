@@ -5,6 +5,7 @@ class Check < ApplicationRecord
 
   accepts_nested_attributes_for :invoices
   has_one_attached :image
+  validates :image_data, presence: true
   attr_accessor :image_data
   validates :number, presence: true, uniqueness: true
 
